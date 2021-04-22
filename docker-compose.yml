@@ -8,6 +8,7 @@ services:
         environment:
             PHP_PROFILER_TOKEN: toto
             PHP_PROFILER_FLAGS: CPU,NO_SPANS,MEMORY
+            PHP_PROFILER_URL: file:///tmp
         volumes:
             - ./profiler_lite.php:/opt/php_profiler_lite/profiler_lite.php:ro
     nginx:

@@ -14,12 +14,17 @@ Settings
 
 `PHP_PROFILER_TOKEN` : some random stuff
 
-`PHP_PROFILER_FLAGS` : comma separated flags :
+`PHP_PROFILER_FLAGS` : comma separated flags
 
 * CPU
 * MEMORY
 * NO_BUILTINS
 * NO_SPANS
+
+`PHP_PROFILER_URL` : where to send the profile
+
+* file
+* http
 
 Demo
 ----
