@@ -7,7 +7,7 @@ but opiniated, and usable inside a container with some ENV.
 * PHP >= 7.0 packaged by Debian
 * php-curl
 * [php-tideways](https://github.com/tideways/php-xhprof-extension)
-* target [xhgui](https://github.com/perftools/xhgui) http upload
+* target [xhgui](https://github.com/perftools/xhgui) http upload, or filling a folder with plain old files.
 
 Settings
 --------
@@ -24,7 +24,7 @@ Settings
 `PHP_PROFILER_URL` : where to send the profile
 
 * file
-* http
+* http/https
 
 Demo
 ----

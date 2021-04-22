@@ -35,7 +35,8 @@ function _phpprofiler_close() {
                     json_encode($data) . PHP_EOL);
                 break;
             case 'http':
-                $ch = curl_init($url);
+            case 'https':
+                $ch = curl_init($out);
                 if (!$ch) {
                     throw new Exception('Failed to create cURL resource');
                 }
@@ -67,7 +68,7 @@ function _phpprofiler_close() {
                 break;
         }
     } else {
-    var_dump($data);
+        var_dump($data);
     }
 }
 
