@@ -1,0 +1,19 @@
+---
+
+version: "3"
+
+services:
+    php:
+        image: php_profiler_lite
+        environment:
+            PHP_PROFILER_TOKEN: toto
+        volumes:
+            - ./profiler_lite.php:/opt/php_profiler_lite/profiler_lite.php:ro
+    nginx:
+        image: bearstech/nginx:1.14
+        volumes:
+          - ./nginx.conf:/etc/nginx/sites-enabled/default
+        links:
+          - php
+        ports:
+          - 8000:8000
