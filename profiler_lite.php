@@ -22,8 +22,50 @@ function _phpprofiler_init() {
 }
 
 function _phpprofiler_close() {
-    $data = tideways_disable();
+    $profile = tideways_disable();
     $timeout = 3;
+
+    $requestTimeFloat = explode('.', $_SERVER['REQUEST_TIME_FLOAT']);
+    if (!isset($requestTimeFloat[1])) {
+        $requestTimeFloat[1] = 0;
+    }
+
+    $allowedServerKeys = array(
+        'DOCUMENT_ROOT',
+        'HTTPS',
+        'HTTP_HOST',
+        'HTTP_USER_AGENT',
+        'PATH_INFO',
+        'PHP_AUTH_USER',
+        'PHP_SELF',
+        'QUERY_STRING',
+        'REMOTE_ADDR',
+        'REMOTE_USER',
+        'REQUEST_METHOD',
+        'REQUEST_TIME',
+        'REQUEST_TIME_FLOAT',
+        'SERVER_ADDR',
+        'SERVER_NAME',
+        'UNIQUE_ID',
+    );
+
+    $serverMeta = array_intersect_key($_SERVER, array_flip($allowedServerKeys));
+
+    $meta = array(
+        //'url' => $url,
+        'get' => $_GET,
+        //'env' => $this->getEnvironment($_ENV),
+        'SERVER' => $serverMeta,
+        //'simple_url' => $this->getSimpleUrl($url),
+        'request_ts_micro' => array(
+            'sec' => $requestTimeFloat[0],
+            'usec' => $requestTimeFloat[1]),
+    );
+
+    $data = array(
+        'profile' => $profile,
+        'meta' => $meta,
+    );
 
     $out = getenv('PHP_PROFILER_URL');
     if ($out) {
