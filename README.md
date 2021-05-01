@@ -7,7 +7,7 @@ but opiniated, and usable inside a container with some ENV.
 * PHP >= 7.0 packaged by Debian
 * php-curl
 * [php-tideways](https://github.com/tideways/php-xhprof-extension)
-* target [xhgui](https://github.com/perftools/xhgui) http upload, or filling a folder with plain old files.
+* target [xhgui](https://github.com/perftools/xhgui) http upload, or filling a folder with plain old files, readable with [tk](https://github.com/tideways/toolkit).
 
 Settings
 --------
