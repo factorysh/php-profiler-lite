@@ -14,6 +14,9 @@ docker-mockup:
 		-f Dockerfile.mockup \
 		.
 
+demo: | docker-mockup docker-image up
+	docker-compose logs -f
+
 
 up:
 	docker-compose up -d

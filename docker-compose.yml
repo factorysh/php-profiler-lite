@@ -8,9 +8,10 @@ services:
         environment:
             PHP_PROFILER_TOKEN: toto
             PHP_PROFILER_FLAGS: CPU,NO_SPANS,MEMORY
-            PHP_PROFILER_URL: file:///tmp
+            PHP_PROFILER_URL: http://xh_mockup:5000/upload
         volumes:
             - ./profiler_lite.php:/opt/php_profiler_lite/profiler_lite.php:ro
+
     nginx:
         image: bearstech/nginx:1.14
         volumes:
@@ -19,3 +20,8 @@ services:
           - php
         ports:
           - 8000:8000
+
+    xh_mockup:
+        image: php_profiler_lite_mockup
+        ports:
+          - 5000:5000
