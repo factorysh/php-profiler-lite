@@ -1,5 +1,4 @@
 from flask import Flask, request
-from werkzeug.serving import run_simple
 
 
 app = Flask(__name__)
