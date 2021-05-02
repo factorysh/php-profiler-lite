@@ -2,7 +2,8 @@
 
 function _phpprofiler_init() {
     $token = getenv('PHP_PROFILER_TOKEN');
-    if ($token && $token == $_SERVER['HTTP_PHP_PROFILER_TOKEN']) {
+    if ($token && ( $token == $_SERVER['HTTP_PHP_PROFILER_TOKEN'] ||
+            $token == $_GET['PHP_PROFILER_TOKEN'])) {
         register_shutdown_function('_phpprofiler_close');
         $flagsCombined = 0;
         $flags = getenv('PHP_PROFILER_FLAGS');
