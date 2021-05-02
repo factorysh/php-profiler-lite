@@ -1,0 +1,14 @@
+FROM bearstech/python-dev:3.9
+
+RUN mkdir /opt/mockup \
+        && python3 -m venv /opt/mockup/venv \
+        && /opt/mockup/venv/bin/pip install -U pip wheel \
+        && /opt/mockup/venv/bin/pip install flask
+
+COPY mockup/mockup.py /opt/mockup/
+
+ARG UID=1000
+USER ${UID}
+
+EXPOSE 5000
+CMD ["/opt/mockup/venv/bin/python", "/opt/mockup/mockup.py"]
