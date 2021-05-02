@@ -29,6 +29,10 @@ Settings
 Demo
 ----
 
-    make docker-image
-    make up
+    make demo
     curl -H "php-profiler-token: toto"  -v http://localhost:8000/
+
+Test
+----
+
+    make test
